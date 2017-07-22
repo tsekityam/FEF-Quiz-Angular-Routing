@@ -22,6 +22,12 @@ angular
       controllerAs: 'brick'
     });
 
+    $stateProvider.state('bricks.cart', {
+      url: '/cart',
+      templateUrl: 'views/cart.html',
+      controller: 'CartCtrl as cart'
+    });
+
     $stateProvider.state('cart', {
       url: '/cart',
       templateUrl: 'views/cart.html',
