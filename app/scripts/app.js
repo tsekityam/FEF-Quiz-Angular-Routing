@@ -13,22 +13,13 @@ angular
   .config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
 
-    $stateProvider.state('redBricks', {
-      url: '/bricks/red',
+    $stateProvider.state('bricks', {
+      url: '/bricks/:color',
       templateUrl: 'views/bricks.html',
-      controller: 'RedBricksCtrl as brick'
-    });
-
-    $stateProvider.state('blueBricks', {
-      url: '/bricks/blue',
-      templateUrl: 'views/bricks.html',
-      controller: 'BlueBricksCtrl as brick'
-    });
-
-    $stateProvider.state('greenBricks', {
-      url: '/bricks/green',
-      templateUrl: 'views/bricks.html',
-      controller: 'GreenBricksCtrl as brick'
+      controllerProvider: function($stateParams) {
+        return $stateParams.color.charAt(0).toUpperCase() + $stateParams.color.slice(1) + 'BricksCtrl';
+      },
+      controllerAs: 'brick'
     });
 
     $stateProvider.state('cart', {
