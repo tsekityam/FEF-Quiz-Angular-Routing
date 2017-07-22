@@ -9,4 +9,12 @@
  * Main module of the application.
  */
 angular
-  .module('routingQuizApp', ['ui.router']);
+  .module('routingQuizApp', ['ui.router'])
+  .config(function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider.state('home', {
+      url: '/',
+      templateUrl: 'views/instructions.html'
+    });
+});
